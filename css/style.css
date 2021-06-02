@@ -1,6 +1,8 @@
 :root {
   --main-font: 'Roboto', sans-serif;
   --secondary-font: 'Raleway', sans-serif;
+  --main-animations: cubic-bezier(0.4, 0, 0.2, 1);
+  --time-animstions: 250ms;
   --accent-color: #2196f3;
   --secondary-color: #757575;
   --color-text-cards: #212121;
@@ -115,13 +117,24 @@ body {
 }
 
 .nav-link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--color-text-cards);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.nav-link.current::after {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4px;
+  margin-top: 28px;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+}
 .nav-link:hover,
 .nav-link:focus {
   color: var(--accent-color);
@@ -142,6 +155,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail {
@@ -169,6 +183,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tel-link:hover,
@@ -216,6 +231,8 @@ body {
   padding: 10px 32px;
   margin-top: 30px;
   border-radius: 4px;
+  transition: background-color var(--time-animstions) var(--main-animations);
+  cursor: pointer;
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -250,7 +267,28 @@ body {
   width: 70px;
   height: 70px;
 }
-
+.attachment-list {
+  position: relative;
+}
+.attachment {
+  font-family: var(--main-font);
+  font-weight: 700;
+  width: 370px;
+  height: 70px;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(47, 48, 58, 0.8);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .advantages-list:not(:last-child) {
   margin-right: 30px;
 }
@@ -314,6 +352,7 @@ body {
   border-radius: 50%;
   background-color: var(--color-line);
   color: #afb1b8;
+  transition: background-color var(--time-animstions) var(--main-animations);
 }
 .social-list-link:hover,
 .social-list-link:focus {
@@ -328,6 +367,9 @@ body {
 .social-list-icon {
   fill: currentColor;
 }
+.social-list-icon {
+  transition: fill var(--time-animstions) var(--main-animations);
+}
 /* =========== AND IMG-HEDING=========== */
 
 /* ============CLIENTS================ */
@@ -335,6 +377,10 @@ body {
   margin-top: 94px;
   /* background-color: tomato; */
 }
+.clients-icon-logo {
+  transition: fill var(--time-animstions) var(--main-animations);
+}
+
 .clients-logo {
   display: flex;
   justify-content: space-between;
@@ -349,6 +395,7 @@ body {
   width: 170px;
   height: 92px;
   border-radius: 4px;
+  transition: border var(--time-animstions) var(--main-animations);
 }
 .clients-list-link:hover,
 .clients-list-link:focus {
@@ -504,6 +551,7 @@ body {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-line);
+  transition: background-color var(--time-animstions) var(--main-animations);
 }
 .social-list-footer-icons:hover,
 .social-list-footer-icons:focus {
@@ -544,6 +592,7 @@ body {
   letter-spacing: 0.03em;
   color: var(--color-text-cards);
   border: none;
+  transition: background-color var(--time-animstions) var(--main-animations);
 }
 .but:hover,
 .but:focus {
@@ -556,10 +605,39 @@ body {
   margin-left: -30px;
   margin-top: -30px;
   margin-bottom: 94px;
+  box-sizing: border-box;
 }
 .portfolio-item {
   margin-left: 30px;
   margin-top: 30px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.team-list-content-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--color-line);
+  background: rgba(33, 150, 243, 0.9);
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-top: 63px;
+  padding-left: 24px;
+  overflow: scroll;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.team-list-wrapper:hover .overlay,
+.team-list-wrapper:focus .overlay {
+  transform: translateY(0%);
 }
 .circuit {
   border: 1px solid #ececec;
@@ -583,6 +661,57 @@ body {
   padding-left: 24px;
   padding-bottom: 20px;
 }
-/* ===========AND MAIN=========== */
+/* =========== AND MAIN =========== */
 
-/* ===========AND PORTFOLIO=========== */
+/* =========== AND PORTFOLIO =========== */
+/* ============ MODAL WIN ============ */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.514);
+  transition: var(--time-animstions) var(--main-animations);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  height: 580px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+  transition: transform 250ms var(--main-animations);
+}
+
+.modal-close-btm {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+.close {
+  /* background: transparent; */
+  width: 18px;
+  height: 18px;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

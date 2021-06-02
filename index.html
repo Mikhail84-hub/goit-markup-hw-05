@@ -59,7 +59,7 @@
             <div class="heroes">
                 <div class="container">
                     <h1 class="hero-heading"> Эффективные решения для вашего бизнеса </h1>
-                    <button class="hero-btn" type="button">Заказать услугу</button>
+                    <button class="hero-btn" data-modal-open type="button">Заказать услугу</button>
                 </div>
             </div>
         </section>
@@ -126,12 +126,33 @@
             <div class="container">
                 <h2 class="img-heading">Чем мы занимаемся</h2>
                 <ul class="img list">
-                    <li class="pictures"><img src="./images/what-are-we-doing/img-1.jpg"
-                            alt="Набирают текст на компютере" width="370" height="294"></li>
-                    <li class="pictures"><img src="./images/what-are-we-doing/img-2.jpg" alt="Работают за ноутбуком"
-                            width="370" height="294"></li>
-                    <li class="pictures"><img src="./images/what-are-we-doing/img-3.jpg" alt="Выбирают цвет на планшете"
-                            width="370" height="294"></li>
+                    <li class="pictures">
+                        <div class="attachment-list">
+                            <img src="./images/what-are-we-doing/img-1.jpg" alt="Набирают текст на компютере" width="370" height="294">
+                            <p class="attachment">
+                                Десктопные приложения
+                            </p>
+                        </div>
+                        
+                        </li>
+                    <li class="pictures">
+                        <div class="attachment-list">
+                            <img src="./images/what-are-we-doing/img-2.jpg" alt="Работают за ноутбуком" width="370" height="294">
+                            <p class="attachment">
+                                Мобильные приложения
+                            </p>
+                        </div>
+                        
+                        </li>
+                    <li class="pictures">
+                        <div class="attachment-list">
+                            <img src="./images/what-are-we-doing/img-3.jpg" alt="Выбирают цвет на планшете" width="370" height="294">
+                            <p class="attachment">
+                                Дизайнерские решения
+                            </p>
+                        </div>
+                        
+                        </li>
                 </ul>
             </div>
 
@@ -374,6 +395,16 @@
         </div>
         
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal-close-btm" data-modal-close>
+                <svg class="close">
+                    <use  href="./images/svg-html/svg-modal-btn/close.svg#icon-Vector-1"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="./js/modal.js"></script>
 </body>
 
 </html>
