@@ -380,7 +380,10 @@ body {
 .clients-icon-logo {
   transition: fill var(--time-animstions) var(--main-animations);
 }
-
+.clients-icon-logo:focus,
+.clients-icon-logo:hover {
+  fill: var(--accent-color);
+}
 .clients-logo {
   display: flex;
   justify-content: space-between;
